@@ -1,0 +1,38 @@
+metadata:
+  author: Michael P. Clemens
+  title: The Fall and Rise of @TheRealJoyG
+
+standalone: true
+template: paperback.pandoc
+filters:
+  - paperback.lua
+
+from: markdown
+resource-path: ["."]
+
+to: latex
+output-file: TheRealJoyG.pdf
+verbosity: WARNING
+
+number-sections: true
+toc: true
+top-level-division: part
+
+variables:
+  documentclass: memoir
+  classoption:
+    - 10pt
+    - twoside
+    - openright
+    - ebook
+  geometry:
+    - top=0.5in
+    - left=0.8in
+    - right=0.6in
+    - bottom=0.5in
+    - twoside=true
+    - includeheadfoot=true
+  has-frontmatter: true
+  indent: true
+  secnumdepth: 2
+  whitespace: small
