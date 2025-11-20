@@ -1,0 +1,411 @@
+/* This defines styles and classes used in the book */
+@page {
+    margin: 10px;
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video,
+ol,
+ul,
+li,
+dl,
+dt,
+dd {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+}
+
+html {
+    line-height: 1.2;
+    font-family: Helvetica, serif;
+    color: #1a1a1a;
+}
+
+a,
+a:visited {
+    color: #1a1a1a;
+}
+
+img {
+    max-width: 100%;
+}
+
+sup {
+    vertical-align: super;
+    font-size: smaller;
+}
+
+sub {
+    vertical-align: sub;
+    font-size: smaller;
+}
+
+h1 {
+    margin: 3em 0 0 0;
+    font-size: 2em;
+    page-break-before: always;
+    line-height: 150%;
+}
+
+h2 {
+    margin: 1.5em 0 0 0;
+    font-size: 1.5em;
+    line-height: 135%;
+}
+
+h3 {
+    margin: 1.3em 0 0 0;
+    font-size: 1.3em;
+}
+
+h4 {
+    margin: 1.2em 0 0 0;
+    font-size: 1.2em;
+}
+
+h5 {
+    margin: 1.1em 0 0 0;
+    font-size: 1.1em;
+}
+
+h6 {
+    font-size: 1em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    text-indent: 0;
+    text-align: left;
+    font-weight: bold;
+    page-break-after: avoid;
+    page-break-inside: avoid;
+}
+
+ol,
+ul {
+    margin: 1em 0 0 1.7em;
+}
+
+li>ol,
+li>ul {
+    margin-top: 0;
+}
+
+blockquote {
+    margin: 1em 0 1em 1.7em;
+}
+
+code {
+    font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+    font-size: 85%;
+    margin: 0;
+    hyphens: manual;
+}
+
+pre {
+    margin: 1em 0;
+    overflow: auto;
+}
+
+pre code {
+    padding: 0;
+    overflow: visible;
+    overflow-wrap: normal;
+}
+
+.sourceCode {
+    background-color: transparent;
+    overflow: visible;
+}
+
+hr {
+    background-color: #1a1a1a;
+    border: none;
+    height: 1px;
+    margin: 1em 0;
+}
+
+table {
+    margin: 1em 0;
+    border-collapse: collapse;
+    width: 100%;
+    overflow-x: auto;
+    display: block;
+}
+
+table caption {
+    margin-bottom: 0.75em;
+}
+
+tbody {
+    margin-top: 0.5em;
+    border-top: 1px solid #1a1a1a;
+    border-bottom: 1px solid #1a1a1a;
+}
+
+th,
+td {
+    padding: 0.25em 0.5em 0.25em 0.5em;
+}
+
+th {
+    border-top: 1px solid #1a1a1a;
+}
+
+header {
+    margin-bottom: 4em;
+    text-align: center;
+}
+
+#TOC li {
+    list-style: none;
+}
+
+#TOC ul {
+    padding-left: 1.3em;
+}
+
+#TOC>ul {
+    padding-left: 0;
+}
+
+#TOC a:not(:hover) {
+    text-decoration: none;
+}
+
+code {
+    white-space: pre-wrap;
+}
+
+div.hanging-indent {
+    margin-left: 1.5em;
+    text-indent: -1.5em;
+}
+
+/* TITLE PAGE */
+.title {
+    text-align: center;
+    font-size: extra-large;
+    padding: 5% 5%;
+    margin: 25% 15% 10% 15%;
+}
+
+p.author {
+    text-align: center;
+    font-style: italic;
+    font-size: x-large;
+}
+
+p.date {}
+
+/* TOC */
+nav#toc ol,
+nav#landmarks ol {
+    padding: 0;
+    margin-left: 1em;
+}
+
+nav#toc ol li,
+nav#landmarks ol li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+a.footnote-ref {
+    margin-left: 0.15em;
+    vertical-align: text-top;
+    font-size: smaller;
+}
+
+em,
+em em em,
+em em em em em {
+    font-style: italic;
+}
+
+em em,
+em em em em {
+    font-style: normal;
+}
+
+/* MISC */
+q {
+    quotes: "“" "”" "‘" "’";
+}
+
+@media screen {
+
+    /* Workaround for iBooks issue; see #6242 */
+    .sourceCode {
+        overflow: visible !important;
+        white-space: pre-wrap !important;
+    }
+}
+
+.online-handle {
+    letter-spacing: 0;
+}
+
+.small-caps {
+    font-variant: small-caps;
+    font-variant-caps: all-small-caps;
+}
+
+/* FRONT/BACK MATTER */
+h1.unnumbered {
+    visibility: hidden;
+}
+
+.title {
+    width: auto;
+    text-align: center;
+    font-style: italic;
+}
+
+.dedication {
+    margin-top: 5%;
+    text-align: center;
+    font-style: italic;
+}
+
+.copyright {
+    margin-top: 5%;
+    font-size: smaller;
+}
+
+.copyright>p {
+    margin-bottom: 0.5em;
+}
+
+/* PARTS */
+h1>.part-title {
+    margin: 0 0 1em;
+    font-size: xx-large;
+    page-break-before: always;
+    line-height: 150%;
+    border-bottom: double thick;
+}
+
+/* CHAPTERS */
+h1>.chapter-title,
+h2>.chapter-title {
+    margin: 0 0 2em;
+    border-bottom: solid thin;
+    font-style: italic;
+}
+
+/* SCENES AND FRONT/BACK MATTER */
+.front-back,
+.scene {
+    margin: 1.5em 0.5em;
+}
+
+/* Justified text for all paragraphs */
+.front-back>p,
+.scene>p {
+    text-align: justify;
+    hyphens: auto;
+    widows: 2;
+    orphans: 2;
+    line-height: 1.2em;
+    margin-bottom: 0.1em;
+}
+
+/* First graf left indent */
+.front-back>p,
+.scene>p {
+    text-indent: 0;
+}
+
+/* Subsequent grafs left indent */
+.front-back>p~p,
+.scene>p~p {
+    text-indent: 1em;
+}
+
+/* Imprint graphic */
+.imprint {
+    margin-top: 2em;
+    text-align: center;
+}
