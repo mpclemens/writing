@@ -1,15 +1,15 @@
 function Div(el)
     -- Special Markdown fenced div classes to become LaTeX environments
     local environments = {
-        ["dedication"] = true,
-        ["copyrightpage"] = true,
-        ["epigraph"] = true,
-        ["foreword"] = true,
-        ["preface"] = true,
         ["acknowledgments"] = true,
-        ["introduction"] = true,
         ["afterword"] = true,
         ["colophon"] = true,
+        ["copyrightpage"] = true,
+        ["dedication"] = true,
+        ["epigraph"] = true,
+        ["foreword"] = true,
+        ["introduction"] = true,
+        ["preface"] = true,
     }
     if environments[el.classes[1]] then
         -- insert element in front

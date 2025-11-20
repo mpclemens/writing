@@ -4,8 +4,7 @@ metadata:
 
 standalone: true
 template: paperback.pandoc
-filters:
-  - paperback.lua
+filters: [paperback.lua]
 
 from: markdown
 resource-path: ["."]
@@ -14,7 +13,7 @@ to: latex
 output-file: TheRealJoyG.pdf
 verbosity: WARNING
 
-number-sections: true
+# number-sections: false
 toc: true
 top-level-division: part
 
@@ -34,5 +33,6 @@ variables:
     - includeheadfoot=true
   has-frontmatter: true
   indent: true
-  secnumdepth: 2
+#  secnumdepth: 0
+  toc-depth: 0
   whitespace: small

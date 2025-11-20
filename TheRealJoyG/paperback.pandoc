@@ -17,7 +17,6 @@ $for(classoption)$
 $endfor$
 ]{$documentclass$}
 
-
 $if(beamerarticle)$
 \usepackage{beamerarticle} % needs to be loaded first
 $endif$
@@ -59,6 +58,9 @@ $if(pdf-trailer-id)$
 \fi
 $endif$
 
+\usepackage{graphicx}  % -- forced, to include the imprint gfx
+
+
 $if(title)$
 \title{$title$$if(thanks)$\thanks{$thanks$}$endif$}
 $endif$
@@ -80,7 +82,7 @@ $-- Customizations
   {\clearpage
    \thispagestyle{empty}
    \flushleft
-  \setlength{\parskip}{1em}
+   \setlength{\parskip}{1em}
   }
   {\par % end the paragraph
    \clearpage
@@ -100,16 +102,21 @@ $-- Customizations
   }
 
 \begin{document}
+
 $if(has-frontmatter)$
 \frontmatter
 $endif$
+
 $if(title)$
+\setlength{\droptitle}{0.3\textheight}
 \maketitle
-$if(abstract)$
-\begin{abstract}
-$abstract$
-\end{abstract}
-$endif$
+\begin{center}\includegraphics[keepaspectratio=true,width=0.5in]{imprint.png}\end{center}
+  $if(abstract)$
+    \begin{abstract}
+    $abstract$
+    \end{abstract}
+  $endif$
+\clearpage
 $endif$
 
 $for(include-before)$
@@ -127,6 +134,12 @@ $if(toccolor)$
 $endif$
 $endif$
 \setcounter{tocdepth}{$toc-depth$}
+
+$-- Customizations from the `memoir` manual
+\renewcommand{\cftpartnumwidth}{1.8em}
+\renewcommand{\cftchaptername}{Chapter\space}
+\renewcommand{\cftchapterleader}{\normalfont\cftdotfill{\cftsectiondotsep}}
+
 \tableofcontents
 \clearpage
 }

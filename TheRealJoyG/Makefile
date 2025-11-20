@@ -4,10 +4,10 @@ TheRealJoyG.pdf: TheRealJoyG.md paperback.yaml
 		--defaults=paperback.yaml \
 		TheRealJoyG.md
 
-debug:
+TheRealJoyG.tex:
 	pandoc --standalone \
 		--defaults=paperback.yaml \
-		--output=TheRealJoyG-debug.tex \
+		--output=TheRealJoyG.tex \
 		TheRealJoyG.md
 
 .PHONY: basic.tex
