@@ -4,7 +4,8 @@ TheRealJoyG.pdf: TheRealJoyG.md paperback.yaml
 		--defaults=paperback.yaml \
 		TheRealJoyG.md
 
-TheRealJoyG.tex:
+.PHONY: TheRealJoyG.tex
+TheRealJoyG.tex: TheRealJoyG.md paperback.yaml
 	pandoc --standalone \
 		--defaults=paperback.yaml \
 		--output=TheRealJoyG.tex \

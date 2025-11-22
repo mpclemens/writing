@@ -60,46 +60,104 @@ $endif$
 
 \usepackage{graphicx}  % -- forced, to include the imprint gfx
 
+$-- Environments for frontmatter
+\newenvironment{mytitlepage}
+{
+  $if(title)$
+  \setlength{\droptitle}{0.3\textheight}
+  \maketitle
+  \begin{center}\includegraphics[keepaspectratio=true,width=0.5in]{imprint.png}\end{center}
+    $if(abstract)$
+      \begin{abstract}$abstract$\end{abstract}
+    $endif$
+  \clearpage
+  $endif$
+}
+
+\newenvironment{myhalftitlepage}
+{
+  $if(title)$
+    \setlength{\droptitle}{0.5\textheight}
+    \maketitle
+    \clearpage
+  $endif$
+}
+
+\newenvironment{copyrightpage}
+{
+  \addcontentsline{toc}{chapter}{Copyright}
+  \thispagestyle{empty}
+  \flushleft
+  \setlength{\parskip}{1em}
+}
+{
+  \par
+  \clearpage
+}
+
+\newenvironment{dedication}
+{
+  \addcontentsline{toc}{chapter}{Dedication}
+  \thispagestyle{empty}% no header and footer
+  \vspace*{\stretch{1}}% some space at the top
+  \itshape             % the text is in italics
+  \centering           % centered
+}
+{
+  \par
+  \vspace{\stretch{3}} % space at bottom is three times that at the top
+  \clearpage           % finish off the page
+}
+
+\newenvironment{mytableofcontents}
+{
+  $if(toc-title)$
+    \renewcommand*\contentsname{$toc-title$}
+  $endif$
+
+  $if(colorlinks)$
+    $if(toccolor)$
+      \hypersetup{linkcolor=$toccolor$}
+    $endif$
+  $endif$
+
+  \setcounter{tocdepth}{$toc-depth$}
+
+  $-- Customizations from the `memoir` manual
+  \renewcommand{\cftpartnumwidth}{1.8em}
+  \renewcommand{\cftchaptername}{Chapter\space}
+  \renewcommand{\cftchapterleader}{\normalfont\cftdotfill{\cftsectiondotsep}}
+  \tableofcontents*
+
+  $if(lof)$
+    \listoffigures
+  $endif$
+
+  $if(lot)$
+    \listoftables
+  $endif$
+}
+{
+  \clearpage
+}
+
+$-- Document rendering begins here
 
 $if(title)$
-\title{$title$$if(thanks)$\thanks{$thanks$}$endif$}
+  \title{$title$$if(thanks)$\thanks{$thanks$}$endif$}
 $endif$
 $if(subtitle)$
-\usepackage{etoolbox}
-\makeatletter
-\providecommand{\subtitle}[1]{% add subtitle to \maketitle
-  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
-}
-\makeatother
-\subtitle{$subtitle$}
+  \usepackage{etoolbox}
+  \makeatletter
+  \providecommand{\subtitle}[1]{ % add subtitle to \maketitle
+    \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+  }
+  \makeatother
+  \subtitle{$subtitle$}
 $endif$
 \author{$for(author)$$author$$sep$ \and $endfor$}
 \date{$date$}
 \clearpage
-
-$-- Customizations
-\newenvironment{copyrightpage}
-  {\clearpage
-   \thispagestyle{empty}
-   \flushleft
-   \setlength{\parskip}{1em}
-  }
-  {\par % end the paragraph
-   \clearpage
-  }
-
-
-\newenvironment{dedication}
-  {\clearpage           % we want a new page
-   \thispagestyle{empty}% no header and footer
-   \vspace*{\stretch{1}}% some space at the top
-   \itshape             % the text is in italics
-   \raggedleft          % flush to the right margin
-  }
-  {\par % end the paragraph
-   \vspace{\stretch{3}} % space at bottom is three times that at the top
-   \clearpage           % finish off the page
-  }
 
 \begin{document}
 
@@ -107,54 +165,31 @@ $if(has-frontmatter)$
 \frontmatter
 $endif$
 
-$if(title)$
-\setlength{\droptitle}{0.3\textheight}
-\maketitle
-\begin{center}\includegraphics[keepaspectratio=true,width=0.5in]{imprint.png}\end{center}
-  $if(abstract)$
-    \begin{abstract}
-    $abstract$
-    \end{abstract}
-  $endif$
-\clearpage
-$endif$
-
 $for(include-before)$
-$include-before$
-
+  $include-before$
 $endfor$
-$if(toc)$
-$if(toc-title)$
-\renewcommand*\contentsname{$toc-title$}
-$endif$
-{
-$if(colorlinks)$
-$if(toccolor)$
-\hypersetup{linkcolor=$toccolor$}
-$endif$
-$endif$
-\setcounter{tocdepth}{$toc-depth$}
 
-$-- Customizations from the `memoir` manual
-\renewcommand{\cftpartnumwidth}{1.8em}
-\renewcommand{\cftchaptername}{Chapter\space}
-\renewcommand{\cftchapterleader}{\normalfont\cftdotfill{\cftsectiondotsep}}
+$if(title)$
+  \begin{mytitlepage}\end{mytitlepage}
+$endif$
 
-\tableofcontents
-\clearpage
-}
+$if(my-copyrightpage)$
+  \begin{copyrightpage}\end{copyrightpage}
 $endif$
-$if(lof)$
-\listoffigures
+
+$if(my-dedication)$
+  \begin{dedication}\end{dedication}
 $endif$
-$if(lot)$
-\listoftables
+
+$if(my-toc)$
+   \begin{mytableofcontents}\end{mytableofcontents}
 $endif$
+
 $if(linestretch)$
-\setstretch{$linestretch$}
+  \setstretch{$linestretch$}
 $endif$
 
-$-- mainmatter and frontmatter are in the body
+$-- Table of Contents, \mainmatter and \backmatter come from the body
 $body$
 
 $if(nocite-ids)$
