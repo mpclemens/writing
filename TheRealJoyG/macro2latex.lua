@@ -4,6 +4,8 @@ function Para(el)
         ["[[mainmatter]]"] = "\\mainmatter",
         ["[[frontmatter]]"] = "\\frontmatter",
         ["[[backmatter]]"] = "\\backmatter",
+
+        ["[[phantompart]]"] = "\\part*{}\\label{section}",
         ["[[toc]]"] = "\\begin{mytableofcontents}\\end{mytableofcontents}",
         ["[[fullimprint]]"] =
         "\\begin{center}\\includegraphics[keepaspectratio=true,width=2in]{fullimprint.png}\\end{center}",

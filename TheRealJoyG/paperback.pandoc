@@ -87,11 +87,13 @@ $-- Environments for frontmatter
 {
   \addcontentsline{toc}{chapter}{Copyright}
   \thispagestyle{empty}
+  \vspace*{\stretch{2}}% some space at the top
   \flushleft
   \setlength{\parskip}{1em}
 }
 {
   \par
+  \vspace*{\stretch{2}}% same space at the bottom
   \clearpage
 }
 
@@ -108,6 +110,7 @@ $-- Environments for frontmatter
   \vspace{\stretch{3}} % space at bottom is three times that at the top
   \clearpage           % finish off the page
 }
+
 
 \newenvironment{mytableofcontents}
 {
@@ -161,6 +164,35 @@ $endif$
 
 \begin{document}
 
+\makecommand*\mytableofcontents{
+  $if(toc-title)$
+    \renewcommand*\contentsname{$toc-title$}
+  $endif$
+
+  $if(colorlinks)$
+    $if(toccolor)$
+      \hypersetup{linkcolor=$toccolor$}
+    $endif$
+  $endif$
+
+  \setcounter{tocdepth}{$toc-depth$}
+
+  $-- Customizations from the `memoir` manual
+  \renewcommand{\cftpartnumwidth}{1.8em}
+  \renewcommand{\cftchaptername}{Chapter\space}
+  \renewcommand{\cftchapterleader}{\normalfont\cftdotfill{\cftsectiondotsep}}
+  \tableofcontents*
+
+  $if(lof)$
+    \listoffigures
+  $endif$
+
+  $if(lot)$
+    \listoftables
+  $endif$
+  \clearpage
+}
+
 $if(has-frontmatter)$
 \frontmatter
 $endif$
@@ -189,7 +221,7 @@ $if(linestretch)$
   \setstretch{$linestretch$}
 $endif$
 
-$-- Table of Contents, \mainmatter and \backmatter come from the body
+$-- Table of Contents, main- and back-matter come from the body
 $body$
 
 $if(nocite-ids)$
