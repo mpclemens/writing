@@ -1,26 +1,18 @@
+
+all: paperback epub
+
+paperback: TheRealJoyG.pdf
+epub: TheRealJoyG.epub
+
 .PHONY: TheRealJoyG.pdf
 TheRealJoyG.pdf: TheRealJoyG.md paperback.yaml
 	pandoc --standalone \
 		--defaults=paperback.yaml \
 		TheRealJoyG.md
 
-.PHONY: TheRealJoyG.tex
-TheRealJoyG.tex: TheRealJoyG.md paperback.yaml
+
+.PHONY: TheRealJoyG.epub
+TheRealJoyG.epub: TheRealJoyG.md epub.yaml
 	pandoc --standalone \
-		--defaults=paperback.yaml \
-		--output=TheRealJoyG.tex \
+		--defaults=epub.yaml \
 		TheRealJoyG.md
-
-.PHONY: basic.tex
-basic.tex:
-	pandoc --standalone \
-		--defaults=paperback.yaml \
-		--output=basic.tex \
-		basic.md
-
-.PHONY: basic.pdf
-basic.pdf:
-	pandoc --standalone \
-		--defaults=paperback.yaml \
-		--output=basic.pdf \
-		basic.md

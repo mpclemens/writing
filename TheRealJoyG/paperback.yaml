@@ -13,7 +13,8 @@ to: latex
 output-file: TheRealJoyG.pdf
 verbosity: WARNING
 
-toc: true
+# toc is master flag for ToC generation
+toc: false
 top-level-division: part
 number-sections: true
 
@@ -27,7 +28,7 @@ variables:
   geometry:
     - top=0.5in
     - left=0.8in
-    - right=0.6in
+    - right=0.4in
     - bottom=0.5in
     - twoside=true
     - includeheadfoot=true

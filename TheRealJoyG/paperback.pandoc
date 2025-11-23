@@ -60,13 +60,22 @@ $endif$
 
 \usepackage{graphicx}  % -- forced, to include the imprint gfx
 
-$-- Environments for frontmatter
+$-- My custominzations
+
+\newcommand*\myimprint{
+\begin{center}\includegraphics[keepaspectratio=true,width=0.5in]{imprint.png}\end{center}
+}
+
+\newcommand*\myfullimprint{
+\begin{center}\includegraphics[keepaspectratio=true,width=2in]{fullimprint.png}\end{center}
+}
+
 \newenvironment{mytitlepage}
 {
   $if(title)$
   \setlength{\droptitle}{0.3\textheight}
   \maketitle
-  \begin{center}\includegraphics[keepaspectratio=true,width=0.5in]{imprint.png}\end{center}
+  \myimprint
     $if(abstract)$
       \begin{abstract}$abstract$\end{abstract}
     $endif$
@@ -112,8 +121,8 @@ $-- Environments for frontmatter
 }
 
 
-\newenvironment{mytableofcontents}
-{
+\newcommand*\mytableofcontents{
+  $if(toc)$
   $if(toc-title)$
     \renewcommand*\contentsname{$toc-title$}
   $endif$
@@ -139,59 +148,30 @@ $-- Environments for frontmatter
   $if(lot)$
     \listoftables
   $endif$
-}
-{
   \clearpage
+  $endif$
 }
+
+
 
 $-- Document rendering begins here
 
 $if(title)$
-  \title{$title$$if(thanks)$\thanks{$thanks$}$endif$}
+\title{$title$$if(thanks)$\thanks{$thanks$}$endif$}
 $endif$
 $if(subtitle)$
-  \usepackage{etoolbox}
-  \makeatletter
-  \providecommand{\subtitle}[1]{ % add subtitle to \maketitle
-    \apptocmd{\@title}{\par {\large #1 \par}}{}{}
-  }
-  \makeatother
-  \subtitle{$subtitle$}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{$subtitle$}
 $endif$
 \author{$for(author)$$author$$sep$ \and $endfor$}
 \date{$date$}
-\clearpage
 
 \begin{document}
-
-\makecommand*\mytableofcontents{
-  $if(toc-title)$
-    \renewcommand*\contentsname{$toc-title$}
-  $endif$
-
-  $if(colorlinks)$
-    $if(toccolor)$
-      \hypersetup{linkcolor=$toccolor$}
-    $endif$
-  $endif$
-
-  \setcounter{tocdepth}{$toc-depth$}
-
-  $-- Customizations from the `memoir` manual
-  \renewcommand{\cftpartnumwidth}{1.8em}
-  \renewcommand{\cftchaptername}{Chapter\space}
-  \renewcommand{\cftchapterleader}{\normalfont\cftdotfill{\cftsectiondotsep}}
-  \tableofcontents*
-
-  $if(lof)$
-    \listoffigures
-  $endif$
-
-  $if(lot)$
-    \listoftables
-  $endif$
-  \clearpage
-}
 
 $if(has-frontmatter)$
 \frontmatter
@@ -203,18 +183,6 @@ $endfor$
 
 $if(title)$
   \begin{mytitlepage}\end{mytitlepage}
-$endif$
-
-$if(my-copyrightpage)$
-  \begin{copyrightpage}\end{copyrightpage}
-$endif$
-
-$if(my-dedication)$
-  \begin{dedication}\end{dedication}
-$endif$
-
-$if(my-toc)$
-   \begin{mytableofcontents}\end{mytableofcontents}
 $endif$
 
 $if(linestretch)$

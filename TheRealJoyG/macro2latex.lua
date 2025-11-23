@@ -1,14 +1,17 @@
 function Para(el)
     -- Replace custom macro placeholders with actual LaTeX commands
     local replacements = {
-        ["[[mainmatter]]"] = "\\mainmatter",
         ["[[frontmatter]]"] = "\\frontmatter",
+        ["[[mainmatter]]"] = "\\mainmatter",
         ["[[backmatter]]"] = "\\backmatter",
 
-        ["[[phantompart]]"] = "\\part*{}\\label{section}",
-        ["[[toc]]"] = "\\begin{mytableofcontents}\\end{mytableofcontents}",
-        ["[[fullimprint]]"] =
-        "\\begin{center}\\includegraphics[keepaspectratio=true,width=2in]{fullimprint.png}\\end{center}",
+        ["[[imprint]]"] = "\\myimprint",
+        ["[[fullimprint]]"] = "\\myfullimprint",
+
+        ["[[titlepage]]"] = "\\mytitlepage",
+        ["[[halftitlepage]]"] = "\\myhalftitlepage",
+
+        ["[[toc]]"] = "\\mytableofcontents",
     }
     for i, item in ipairs(el.content) do
         if item.t == "Str" and replacements[item.text] then

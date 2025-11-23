@@ -1,0 +1,50 @@
+metadata:
+  author: Michael P. Clemens
+  title: The Fall and Rise of @TheRealJoyG
+
+standalone: true
+css: epub.css
+template: epub.pandoc
+filters: [macro2epub.lua]
+
+from: markdown
+resource-path: ["."]
+
+to: epub3
+output-file: TheRealJoyG.epub
+verbosity: WARNING
+
+# toc is master flag for ToC generation
+toc: true
+top-level-division: part
+toc-depth: 3
+number-sections: false
+split-level: 2
+
+epub-cover-image: ${.}/TheRealJoyG.png
+epub-title-page: true
+
+variables:
+  publisher: Puzzled Rhino Press
+  rights: "Copyright © 2025 by Michael P. Clemens. All rights reserved"
+
+# variables:
+#   documentclass: memoir
+#   classoption:
+#     - 10pt
+#     - twoside
+#     - openright
+#     - ebook
+#   geometry:
+#     - top=0.5in
+#     - left=0.8in
+#     - right=0.4in
+#     - bottom=0.5in
+#     - twoside=true
+#     - includeheadfoot=true
+#   has-frontmatter: true
+
+#   indent: true
+#   secnumdepth: 2
+#   toc-depth: 2
+#   whitespace: small
