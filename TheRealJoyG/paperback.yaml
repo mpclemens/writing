@@ -10,7 +10,7 @@ from: markdown
 resource-path: ["."]
 
 to: latex
-output-file: TheRealJoyG.pdf
+output-file: TheRealJoyG-paperback.pdf
 verbosity: WARNING
 
 # toc is master flag for ToC generation

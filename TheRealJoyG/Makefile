@@ -1,8 +1,8 @@
 
-all: paperback epub
+all: paperback ebook
 
 paperback: TheRealJoyG.pdf
-epub: TheRealJoyG.epub
+ebook: TheRealJoyG.epub
 
 .PHONY: TheRealJoyG.pdf
 TheRealJoyG.pdf: TheRealJoyG-paperback.md paperback.yaml
@@ -12,15 +12,15 @@ TheRealJoyG.pdf: TheRealJoyG-paperback.md paperback.yaml
 
 
 .PHONY: TheRealJoyG.epub
-TheRealJoyG.epub: TheRealJoyG-ebook.md epub.yaml
+TheRealJoyG.epub: TheRealJoyG-ebook.md ebook.yaml
 	pandoc --standalone \
-		--defaults=epub.yaml \
+		--defaults=ebook.yaml \
 		TheRealJoyG-ebook.md
 
 
 .PHONY: basic.epub
-basic.epub: basic.md epub.yaml
+basic.epub: basic.md ebook.yaml
 	pandoc --standalone \
-		--defaults=epub.yaml \
+		--defaults=ebook.yaml \
 		--output=basic.epub \
 		basic.md

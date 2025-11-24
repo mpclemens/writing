@@ -4,15 +4,14 @@ metadata:
 
 
 standalone: true
-css: epub.css
-# template: epub.pandoc
+css: ebook.css
 filters: [images2epub.lua]
 
 from: markdown
 resource-path: ["."]
 
 to: epub3
-output-file: TheRealJoyG.epub
+output-file: TheRealJoyG-ebook.epub
 verbosity: WARNING
 
 # toc is master flag for ToC generation
