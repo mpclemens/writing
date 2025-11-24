@@ -4,7 +4,7 @@ function Div(el)
         ["acknowledgments"] = true,
         ["afterword"] = true,
         ["colophon"] = true,
-        ["copyrightpage"] = true,
+        ["copyright-page"] = true,
         ["dedication"] = true,
         ["epigraph"] = true,
         ["foreword"] = true,

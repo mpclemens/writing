@@ -92,7 +92,7 @@ $-- My custominzations
   $endif$
 }
 
-\newenvironment{copyrightpage}
+\newenvironment{copyright-page}
 {
   \addcontentsline{toc}{chapter}{Copyright}
   \thispagestyle{empty}

@@ -188,9 +188,17 @@ p.author {
 }
 
 p.publisher {
+  margin-top: 0.5em;
   text-align: center;
   font-style: italic;
   font-size: large;
+}
+
+/* Imprint graphic */
+img.imprint {
+  display: block;
+  margin: 2em auto auto;
+  width: 20%;
 }
 
 p.rights {
@@ -199,6 +207,12 @@ p.rights {
 }
 
 p.date {
+}
+
+img.fullimprint {
+  display: block;
+  margin: 2em auto auto;
+  width: 35%;
 }
 
 /* TOC */
@@ -266,7 +280,7 @@ h1.unnumbered {
   font-style: italic;
 }
 
-.copyrightpage {
+.copyright-page {
   margin-top: 5%;
   font-size: smaller;
 }
@@ -314,14 +328,4 @@ h1>.chapter-title, h2>.chapter-title {
 /* Subsequent grafs left indent */
 .front-back>p~p, .scene>p~p {
   text-indent: 1em;
-}
-
-/* Imprint graphic */
-.imprint {
-  margin-top: 2em;
-  text-align: center;
-}
-
-.publisher {
-  text-align: center;
 }
