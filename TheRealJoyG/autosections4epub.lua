@@ -1,14 +1,15 @@
 -- Replace section placheholders with numbered titles, incrementing the number as it progresses
-local book_number = 0
-local part_number = 0
-local chapter_number = 0
-local section_number = 0
 
--- Supported styles for each TYPE of "Book", "Part", "Chapter", "Section":
-
--- TYPEN: Replaces with "Type X", where X is the type number
--- TYPEW: Replaces with "Type Number", where Number is the text equivalent of the type number (e.g., One, Two, Three)
--- TYPER: Replaces with "Type Roman", where Roman is the Roman numeral equivalent of the type number (e.g., I, II, III)
+-- Document will contain macros like {{ChapterN}}, {{SectionW}}, etc.
+--
+-- Leading part of counter is the keys of this table, value is the type of replcement
+-- N = Number, W = Word, R = Roman Numeral
+local counters = {
+    ["Book"] = 0,
+    ["Part"] = 0,
+    ["Chapter"] = 0,
+    ["Section"] = 0,
+}
 
 local function toWords(num)
     local words = {
@@ -83,52 +84,31 @@ local function toRoman(num)
     return result
 end
 
-local function common(el)
+local function forEpub(el)
     if el.content == nil then
         return el
     end
     for i, item in ipairs(el.content) do
         if item.t == "Str" and item.text ~= "" then
-            -- Book replacements all match "{{Book..."
-            if item.text:find("{{Book[NWR]}}") then
-                book_number = book_number + 1
-                if item.text:find("{{BookN}}") then
-                    el.content[i] = item.text:gsub("{{BookN}}", pandoc.Str("Book " .. book_number).text)
-                elseif item.text:find("{{BookW}}") then
-                    el.content[i] = pandoc.Str("Book " .. toWords(book_number))
-                elseif item.text:find("{{BookR}}") then
-                    el.content[i] = pandoc.Str("Book " .. toRoman(book_number))
-                end
-                -- Part replacements all match "{{Part..."
-            elseif item.text:find("{{Part[NWR]}}") then
-                part_number = part_number + 1
-                if item.text:find("{{PartN}}") then
-                    el.content[i] = item.text:gsub("{{PartN}}", pandoc.Str("Part " .. part_number).text)
-                elseif item.text:find("{{PartW}}") then
-                    el.content[i] = pandoc.Str("Part " .. toWords(part_number))
-                elseif item.text:find("{{PartR}}") then
-                    el.content[i] = pandoc.Str("Part " .. toRoman(part_number))
-                end
-                -- Chapter replacements all match "{{Chapter..."
-            elseif item.text:find("{{Chapter[NWR]}}") then
-                chapter_number = chapter_number + 1
-                section_number = 0 -- Special, reset section number at each new chapter
-                if item.text:find("{{ChapterN}}") then
-                    el.content[i] = item.text:gsub("{{ChapterN}}", pandoc.Str("Chapter " .. chapter_number).text)
-                elseif item.text:find("{{ChapterW}}") then
-                    el.content[i] = pandoc.Str("Chapter " .. toWords(chapter_number))
-                elseif item.text:find("{{ChapterR}}") then
-                    el.content[i] = pandoc.Str("Chapter " .. toRoman(chapter_number))
-                end
-                -- Section replacements all match "{{Section..."
-            elseif item.text:find("{{Section[NWR]}}") then
-                section_number = section_number + 1
-                if item.text:find("{{SectionN}}") then
-                    el.content[i] = item.text:gsub("{{SectionN}}", pandoc.Str("Section " .. section_number).text)
-                elseif item.text:find("{{SectionW}}") then
-                    el.content[i] = pandoc.Str("Section " .. toWords(section_number))
-                elseif item.text:find("{{SectionR}}") then
-                    el.content[i] = pandoc.Str("Section " .. toRoman(section_number))
+            for pattern, _ in pairs(counters) do
+                if item.text:find("{{" .. pattern .. "[NWR]}}") then
+                    counters[pattern] = counters[pattern] + 1
+                    -- special cases: reset lower level counters
+                    if pattern == "Book" then
+                        counters["Part"] = 0
+                        counters["Chapter"] = 0
+                        counters["Section"] = 0
+                    elseif pattern == "Chapter" then
+                        counters["Section"] = 0
+                    end
+                    if item.text:find("{{" .. pattern .. "N}}") then
+                        el.content[i] = item.text:gsub("{{" .. pattern .. "N}}",
+                            pandoc.Str(pattern .. " " .. counters[pattern]).text)
+                    elseif item.text:find("{{" .. pattern .. "W}}") then
+                        el.content[i] = pandoc.Str(pattern .. " " .. toWords(counters[pattern]))
+                    elseif item.text:find("{{" .. pattern .. "R}}") then
+                        el.content[i] = pandoc.Str(pattern .. " " .. toRoman(counters[pattern]))
+                    end
                 end
             end
         end
@@ -136,72 +116,21 @@ local function common(el)
     return el
 end
 
+
+local function formatCheck(el)
+    if FORMAT:match 'epub' then
+        return forEpub(el)
+    elseif FORMAT:match 'latex' then
+        return forLatex(el)
+    else
+        return el
+    end
+end
+
 function Block(el)
-    return common(el)
+    return formatCheck(el)
 end
 
 function Inline(el)
-    return common(el)
+    return formatCheck(el)
 end
-
--- function Header(el)
---     for i, item in ipairs(el.content) do
---         -- Only bother with non-empty elements
---         if item.t == "Str" and item.text ~= "" then
---             -- Book replacements all match "{{book..."
---             if item.text:find("%[%[book%u+%]%]") then
---                 if item.text == "{{bookRESET}}" then
---                     book_number = 0
---                 end
---                 book_number = book_number + 1
---                 if item.text == "{{bookN}}" then
---                     el.content[i] = pandoc.Str("Book " .. book_number)
---                 elseif item.text == "{{bookW}}" then
---                     el.content[i] = pandoc.Str("Book " .. toWords(book_number))
---                 elseif item.text == "{{bookR}}" then
---                     el.content[i] = pandoc.Str("Book " .. toRoman(book_number))
---                 end
---                 -- Part replacements all match "{{part..."
---             elseif item.text:find("%[%[part%u+%]%]") then
---                 if item.text == "{{partRESET}}" then
---                     part_number = 0
---                 end
---                 part_number = part_number + 1
---                 if item.text == "{{partN}}" then
---                     el.content[i] = pandoc.Str("Part " .. part_number)
---                 elseif item.text == "{{partW}}" then
---                     el.content[i] = pandoc.Str("Part " .. toWords(part_number))
---                 elseif item.text == "{{partR}}" then
---                     el.content[i] = pandoc.Str("Part " .. toRoman(part_number))
---                 end
---                 -- Chapter replacements all match "{{chapter..."
---             elseif item.text:find("%[%[chapter%u+%]%]") then
---                 if item.text == "{{chapterRESET}}" then
---                     chapter_number = 0
---                 end
---                 chapter_number = chapter_number + 1
---                 if el.text == "{{chapterN}}" then
---                     el.content[i] = pandoc.Str("Chapter " .. chapter_number)
---                 elseif el.text == "{{chapterT}}" then
---                     el.content[i] = pandoc.Str("Chapter " .. toWords(chapter_number))
---                 elseif el.text == "{{chapterR}}" then
---                     el.content[i] = pandoc.Str("Chapter " .. toRoman(chapter_number))
---                 end
---                 -- Section replacements all match "{{section..."
---             elseif item.text:find("%[%[section%u+%]%]") then
---                 if item.text == "{{sectionRESET}}" then
---                     section_number = 0
---                 end
---                 section_number = section_number + 1
---                 if item.text == "{{sectionN}}" then
---                     el.content[i] = pandoc.Str("Section " .. section_number)
---                 elseif item.text == "{{sectionW}}" then
---                     el.content[i] = pandoc.Str("Section " .. toWords(section_number))
---                 elseif item.text == "{{sectionR}}" then
---                     el.content[i] = pandoc.Str("Section " .. toRoman(section_number))
---                 end
---             end
---         end
---     end
---     return el
--- end
