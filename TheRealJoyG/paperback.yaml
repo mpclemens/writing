@@ -4,7 +4,7 @@ metadata:
 
 standalone: true
 template: paperback.pandoc
-filters: [macro2latex.lua, class2env.lua]
+filters: [sections.lua, macro2latex.lua, class2env.lua]
 
 from: markdown
 resource-path: ["."]

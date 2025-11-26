@@ -116,6 +116,22 @@ local function forEpub(el)
     return el
 end
 
+local function forLatex(el)
+    if el.content == nil then
+        return el
+    end
+    -- LaTeX documentclass handles automatic numbering, so remove the macros
+    for i, item in ipairs(el.content) do
+        if item.t == "Str" and item.text ~= "" then
+            for pattern, _ in pairs(counters) do
+                if item.text:find("{{" .. pattern .. "[NWR]}}") then
+                    el.content[i] = item.text:gsub("{{" .. pattern .. "[NWR]}}", "")
+                end
+            end
+        end
+    end
+    return el
+end
 
 local function formatCheck(el)
     if FORMAT:match 'epub' then
