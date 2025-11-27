@@ -134,7 +134,7 @@ local function forLatex(el)
 end
 
 local function formatCheck(el)
-    if FORMAT:match 'epub' then
+    if FORMAT:match 'epub3' then
         return forEpub(el)
     elseif FORMAT:match 'latex' then
         return forLatex(el)

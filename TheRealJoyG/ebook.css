@@ -3,7 +3,87 @@
   margin: 10px;
 }
 
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video, ol, ul, li, dl, dt, dd {
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video,
+ol,
+ul,
+li,
+dl,
+dt,
+dd {
   margin: 0;
   padding: 0;
   border: 0;
@@ -17,7 +97,8 @@ html {
   color: #1a1a1a;
 }
 
-a, a:visited {
+a,
+a:visited {
   color: #1a1a1a;
 }
 
@@ -67,7 +148,12 @@ h6 {
   font-size: 1em;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   text-indent: 0;
   text-align: left;
   font-weight: bold;
@@ -75,11 +161,13 @@ h1, h2, h3, h4, h5, h6 {
   page-break-inside: avoid;
 }
 
-ol, ul {
+ol,
+ul {
   margin: 1em 0 0 1.7em;
 }
 
-li>ol, li>ul {
+li>ol,
+li>ul {
   margin-top: 0;
 }
 
@@ -135,7 +223,8 @@ tbody {
   border-bottom: 1px solid #1a1a1a;
 }
 
-th, td {
+th,
+td {
   padding: 0.25em 0.5em 0.25em 0.5em;
 }
 
@@ -181,17 +270,23 @@ div.hanging-indent {
   margin: 25% 15% 10% 15%;
 }
 
-p.author {
+.author {
   text-align: center;
   font-style: italic;
   font-size: x-large;
 }
 
-p.publisher {
+.publisher {
+  margin-top: 3em;
+  text-align: center;
+  font-style: italic;
+}
+
+.rights {
   margin-top: 0.5em;
   text-align: center;
   font-style: italic;
-  font-size: large;
+  font-size: small;
 }
 
 /* Imprint graphic */
@@ -206,8 +301,7 @@ p.rights {
   font-style: italic;
 }
 
-p.date {
-}
+p.date {}
 
 img.fullimprint {
   display: block;
@@ -216,12 +310,14 @@ img.fullimprint {
 }
 
 /* TOC */
-nav#toc ol, nav#landmarks ol {
+nav#toc ol,
+nav#landmarks ol {
   padding: 0;
   margin-left: 1em;
 }
 
-nav#toc ol li, nav#landmarks ol li {
+nav#toc ol li,
+nav#landmarks ol li {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -233,11 +329,14 @@ a.footnote-ref {
   font-size: smaller;
 }
 
-em, em em em, em em em em em {
+em,
+em em em,
+em em em em em {
   font-style: italic;
 }
 
-em em, em em em em {
+em em,
+em em em em {
   font-style: normal;
 }
 
@@ -247,7 +346,8 @@ q {
 }
 
 @media screen {
-/* Workaround for iBooks issue; see #6242 */
+
+  /* Workaround for iBooks issue; see #6242 */
   .sourceCode {
     overflow: visible !important;
     white-space: pre-wrap !important;
@@ -280,13 +380,22 @@ h1.unnumbered {
   font-style: italic;
 }
 
+h2>.acknowledgements,
+h2>.about-the-author {
+  margin: 0 0 2em;
+  border-bottom: solid thin;
+  font-style: italic;
+}
+
+div.acknowledgements-page>p,
+div.about-the-author-page>p,
+div.copyright-page>p {
+  margin-bottom: 0.5em;
+}
+
 .copyright-page {
   margin-top: 5%;
   font-size: smaller;
-}
-
-.copyright>p {
-  margin-bottom: 0.5em;
 }
 
 /* PARTS */
@@ -299,33 +408,32 @@ h1>.part-title {
 }
 
 /* CHAPTERS */
-h1>.chapter-title, h2>.chapter-title {
+h2>.chapter-title {
   margin: 0 0 2em;
   border-bottom: solid thin;
   font-style: italic;
 }
 
-/* SCENES AND FRONT/BACK MATTER */
-.front-back, .scene {
+.chapter {
   margin: 1.5em 0.5em;
 }
 
 /* Justified text for all paragraphs */
-.front-back>p, .scene>p {
+.chapter>p {
   text-align: justify;
   hyphens: auto;
   widows: 2;
   orphans: 2;
   line-height: 1.2em;
-  margin-bottom: 0.1em;
+  margin-bottom: 0.3em;
 }
 
 /* First graf left indent */
-.front-back>p, .scene>p {
+.chapter>p {
   text-indent: 0;
 }
 
 /* Subsequent grafs left indent */
-.front-back>p~p, .scene>p~p {
+.chapter>p~p {
   text-indent: 1em;
 }

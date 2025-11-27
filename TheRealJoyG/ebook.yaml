@@ -23,7 +23,3 @@ split-level: 2
 
 epub-cover-image: ${.}/TheRealJoyG.png
 epub-title-page: true
-
-variables:
-  publisher: Puzzled Rhino Press
-  rights: "Copyright © 2025 by Michael P. Clemens. All rights reserved"
