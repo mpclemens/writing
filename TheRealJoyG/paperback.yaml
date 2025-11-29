@@ -10,6 +10,7 @@ from: markdown
 resource-path: ["."]
 
 to: latex
+input-file: paperback.md
 output-file: TheRealJoyG-paperback.pdf
 verbosity: WARNING
 

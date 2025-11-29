@@ -1,5 +1,5 @@
 local epub_replacements = {
-    ["{{Backmatter}}"] = ""
+    ["{{Placeholder}}"] = ""
 }
 
 local function forEpub(el)

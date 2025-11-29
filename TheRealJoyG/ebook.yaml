@@ -2,7 +2,6 @@ metadata:
   author: Michael P. Clemens
   title: The Fall and Rise of @TheRealJoyG
 
-
 standalone: true
 css: ebook.css
 filters: [images2epub.lua, macros.lua, sections.lua]
