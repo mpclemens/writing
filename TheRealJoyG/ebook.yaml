@@ -5,13 +5,14 @@ metadata:
 
 standalone: true
 css: ebook.css
-filters: [images2epub.lua, sections.lua]
+filters: [images2epub.lua, macros.lua, sections.lua]
 
 from: markdown
 resource-path: ["."]
 
 to: epub3
-output-file: TheRealJoyG-ebook.epub
+input-file: ebook.md
+output-file: TheRealJoyG.epub
 verbosity: WARNING
 
 # toc is master flag for ToC generation
