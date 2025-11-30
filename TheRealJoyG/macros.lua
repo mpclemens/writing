@@ -1,5 +1,6 @@
 local epub_replacements = {
-    ["{{Placeholder}}"] = ""
+    ["{{Break}}"] = "",
+    ["{{Backmatter}}"] = "",
 }
 
 local function forEpub(el)
@@ -15,16 +16,14 @@ local function forEpub(el)
 end
 
 local latex_replacements = {
-    ["{{Frontmatter}}"] = "\\frontmatter",
-    ["{{Mainmatter}}"] = "\\mainmatter",
     ["{{Backmatter}}"] = "\\backmatter",
-
-    ["{{Imprint}}"] = "\\myimprint",
+    ["{{Break}}"] = "\\plainbreak{1}",
+    ["{{Frontmatter}}"] = "\\frontmatter",
     ["{{Fullimprint}}"] = "\\myfullimprint",
-
-    ["{{Titlepage}}"] = "\\mytitlepage",
     ["{{Halftitlepage}}"] = "\\myhalftitlepage",
-
+    ["{{Imprint}}"] = "\\myimprint",
+    ["{{Mainmatter}}"] = "\\mainmatter",
+    ["{{Titlepage}}"] = "\\mytitlepage",
     ["{{Toc}}"] = "\\mytableofcontents",
 }
 

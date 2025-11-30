@@ -17,7 +17,7 @@ verbosity: WARNING
 # toc is master flag for ToC generation
 toc: false
 top-level-division: part
-number-sections: true
+number-sections: false
 
 variables:
   documentclass: memoir
@@ -34,8 +34,7 @@ variables:
     - twoside=true
     - includeheadfoot=true
   has-frontmatter: true
-
   indent: true
-  secnumdepth: 2
+  # secnumdepth: 2
   toc-depth: 2
   whitespace: small
