@@ -152,7 +152,9 @@ $-- My custominzations
   $endif$
 }
 
+$-- Style the footnote numbers
 
+\footmarkstyle{#1  }
 
 $-- Document rendering begins here
 

@@ -1,6 +1,6 @@
 local epub_replacements = {
-    ["{{Break}}"] = "",
-    ["{{Backmatter}}"] = "",
+    ["{{Break}}"] = pandoc.LineBreak(),
+    ["{{Backmatter}}"] = pandoc.Str(""),
 }
 
 local function forEpub(el)
@@ -9,7 +9,7 @@ local function forEpub(el)
     end
     for i, item in ipairs(el.content) do
         if item.t == "Str" and epub_replacements[item.text] then
-            el.content[i] = pandoc.Str(epub_replacements[item.text])
+            el.content[i] = epub_replacements[item.text]
         end
     end
     return el

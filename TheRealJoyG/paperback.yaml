@@ -19,22 +19,25 @@ toc: false
 top-level-division: part
 number-sections: false
 
+# Paper sizing as a 'classoption'
+# ebook: 6"x9"
+# statementpaper: 5.5"x8.5"
+
 variables:
   documentclass: memoir
   classoption:
-    - 10pt
+    - ebook
+    - 11pt
     - twoside
     - openright
-    - ebook
   geometry:
-    - top=0.5in
-    - left=0.8in
-    - right=0.4in
-    - bottom=0.5in
+    - top=0.75in
+    - left=0.9in
+    - right=0.75in
+    - bottom=0.75in
     - twoside=true
     - includeheadfoot=true
   has-frontmatter: true
   indent: true
-  # secnumdepth: 2
   toc-depth: 2
   whitespace: small
