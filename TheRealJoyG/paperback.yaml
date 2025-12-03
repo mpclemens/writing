@@ -30,6 +30,7 @@ variables:
     - 11pt
     - twoside
     - openright
+  fontfamily: ibarra
   geometry:
     - top=0.75in
     - left=0.9in
