@@ -96,9 +96,9 @@ $-- My custominzations
 {
   \addcontentsline{toc}{chapter}{Copyright}
   \thispagestyle{empty}
-  \vspace*{\stretch{2}}% some space at the top
+  $-- \vspace*{\stretch{2}}% some space at the top
   \flushleft
-  \setlength{\parskip}{1em}
+  \setlength{\parskip}{0.75em}
 }
 {
   \par
@@ -154,7 +154,7 @@ $-- My custominzations
 
 $-- Style the footnote numbers
 
-\footmarkstyle{#1  }
+\footmarkstyle{#1~~}
 
 $-- Document rendering begins here
 
@@ -189,6 +189,14 @@ $endif$
 
 $if(linestretch)$
   \setstretch{$linestretch$}
+$endif$
+
+$-- Control if the paragraphs render flush-left with a gap or indented
+$if(indentpara)$
+$-- It's the default setting for this documentclass
+$else$
+\setlength{\parindent}{0pt}
+\abnormalparskip{0.5em}
 $endif$
 
 $-- Table of Contents, main- and back-matter come from the body

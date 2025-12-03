@@ -40,5 +40,6 @@ variables:
     - includeheadfoot=true
   has-frontmatter: true
   indent: true
+  indentpara: true
   toc-depth: 2
   whitespace: small
