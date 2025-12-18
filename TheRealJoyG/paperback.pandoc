@@ -1,19 +1,19 @@
 $passoptions.latex()$
 \documentclass[
 $for(babel-otherlangs)$
-  $babel-otherlangs$,
+$babel-otherlangs$,
 $endfor$
 $if(babel-lang)$
-  $babel-lang$,
+$babel-lang$,
 $endif$
 $if(fontsize)$
-  $fontsize$,
+$fontsize$,
 $endif$
 $if(papersize)$
-  $papersize$paper,
+$papersize$paper,
 $endif$
 $for(classoption)$
-  $classoption$$sep$,
+$classoption$$sep$,
 $endfor$
 ]{$documentclass$}
 
@@ -72,92 +72,94 @@ $-- My custominzations
 
 \newenvironment{mytitlepage}
 {
-  $if(title)$
-  \setlength{\droptitle}{0.3\textheight}
-  \maketitle
-  \myimprint
-    $if(abstract)$
-      \begin{abstract}$abstract$\end{abstract}
-    $endif$
-  \clearpage
-  $endif$
+$if(title)$
+\setlength{\droptitle}{0.3\textheight}
+\maketitle
+\myimprint
+$if(abstract)$
+\begin{abstract}$abstract$\end{abstract}
+$endif$
+\clearpage
+$endif$
 }
 
 \newenvironment{myhalftitlepage}
 {
-  $if(title)$
-    \setlength{\droptitle}{0.5\textheight}
-    \maketitle
-    \clearpage
-  $endif$
+$if(title)$
+\setlength{\droptitle}{0.5\textheight}
+\maketitle
+\clearpage
+$endif$
 }
 
 \newenvironment{copyright-page}
 {
-  \addcontentsline{toc}{chapter}{Copyright}
-  \thispagestyle{empty}
-  $-- \vspace*{\stretch{2}}% some space at the top
-  \flushleft
-  \setlength{\parskip}{0.75em}
+\addcontentsline{toc}{chapter}{Copyright}
+\thispagestyle{empty}% no header and footer
+\begin{vplace}[0.25]
+\flushleft
+\setlength{\parskip}{0.45em}
 }
 {
-  \par
-  \vspace*{\stretch{2}}% same space at the bottom
-  \clearpage
+\par
+\end{vplace}
+\clearpage
 }
 
 \newenvironment{dedication}
 {
-  \addcontentsline{toc}{chapter}{Dedication}
-  \thispagestyle{empty}% no header and footer
-  \vspace*{\stretch{1}}% some space at the top
-  \itshape             % the text is in italics
-  \centering           % centered
+\addcontentsline{toc}{chapter}{Dedication}
+\thispagestyle{empty}% no header and footer
+\begin{vplace}[0.3]
+\itshape             % the text is in italics
+\centering           % centered
 }
 {
-  \par
-  \vspace{\stretch{3}} % space at bottom is three times that at the top
-  \clearpage           % finish off the page
+\par
+\end{vplace}
+\clearpage           % finish off the page
+}
+
+\newenvironment{about-the-author-page}
+{
+\setlength{\parskip}{0.45em}
+}
+{
+\par
+\clearpage
 }
 
 
 \newcommand*\mytableofcontents{
-  $if(toc)$
-  $if(toc-title)$
-    \renewcommand*\contentsname{$toc-title$}
-  $endif$
-
-  $if(colorlinks)$
-    $if(toccolor)$
-      \hypersetup{linkcolor=$toccolor$}
-    $endif$
-  $endif$
-
-  \setcounter{tocdepth}{$toc-depth$}
-
-  $-- Customizations from the `memoir` manual
-  \renewcommand{\cftpartnumwidth}{1.8em}
-  \renewcommand{\cftchaptername}{Chapter\space}
-  \renewcommand{\cftchapterleader}{\normalfont\cftdotfill{\cftsectiondotsep}}
-  \tableofcontents*
-
-  $if(lof)$
-    \listoffigures
-  $endif$
-
-  $if(lot)$
-    \listoftables
-  $endif$
-  \clearpage
-  $endif$
+$if(toc)$
+$if(toc-title)$
+\renewcommand*\contentsname{$toc-title$}
+$endif$
+$if(colorlinks)$
+$if(toccolor)$
+\hypersetup{linkcolor=$toccolor$}
+$endif$
+$endif$
+\setcounter{tocdepth}{$toc-depth$}
+$-- Customizations from the `memoir` manual
+\renewcommand{\cftpartnumwidth}{1.8em}
+\renewcommand{\cftchaptername}{Chapter\space}
+\renewcommand{\cftchapterleader}{\normalfont\cftdotfill{\cftsectiondotsep}}
+\tableofcontents*
+$if(lof)$
+\listoffigures
+$endif$
+$if(lot)$
+\listoftables
+$endif$
+\clearpage
+$endif$
 }
 
 $-- Style the footnote numbers
-
 \footmarkstyle{#1~~}
 
 $-- Document rendering begins here
-
 $if(title)$
 \title{$title$$if(thanks)$\thanks{$thanks$}$endif$}
 $endif$
@@ -165,7 +167,7 @@ $if(subtitle)$
 \usepackage{etoolbox}
 \makeatletter
 \providecommand{\subtitle}[1]{% add subtitle to \maketitle
-  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+\apptocmd{\@title}{\par {\large #1 \par}}{}{}
 }
 \makeatother
 \subtitle{$subtitle$}
@@ -180,15 +182,15 @@ $if(has-frontmatter)$
 $endif$
 
 $for(include-before)$
-  $include-before$
+$include-before$
 $endfor$
 
 $if(title)$
-  \begin{mytitlepage}\end{mytitlepage}
+\begin{mytitlepage}\end{mytitlepage}
 $endif$
 
 $if(linestretch)$
-  \setstretch{$linestretch$}
+\setstretch{$linestretch$}
 $endif$
 
 $-- Control if the paragraphs render flush-left with a gap or indented

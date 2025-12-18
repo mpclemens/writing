@@ -1,6 +1,7 @@
 function Div(el)
     -- Special Markdown fenced div classes to become LaTeX environments
     local environments = {
+        ["about-the-author-page"] = true,
         ["acknowledgments"] = true,
         ["afterword"] = true,
         ["colophon"] = true,
