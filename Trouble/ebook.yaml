@@ -1,0 +1,25 @@
+metadata:
+  author: Michael P. Clemens
+  title: Trouble
+
+standalone: true
+css: ebook.css
+filters: [images2epub.lua, macros.lua, sections.lua]
+
+from: markdown
+resource-path: ["."]
+
+to: epub3
+input-file: ebook.md
+output-file: Trouble.epub
+verbosity: WARNING
+
+# toc is master flag for ToC generation
+toc: true
+top-level-division: chapter
+toc-depth: 3
+number-sections: false
+split-level: 2
+
+epub-cover-image: ${.}/Trouble.png
+epub-title-page: true
