@@ -437,3 +437,9 @@ h2>.chapter-title {
 .chapter>p~p {
   text-indent: 1em;
 }
+
+.subdivision-end {
+  display: block;
+  line-height: 2;
+  text-align: center;
+}

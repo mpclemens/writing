@@ -1,6 +1,7 @@
 local epub_replacements = {
     ["{{Break}}"] = pandoc.LineBreak(),
     ["{{Backmatter}}"] = pandoc.Str(""),
+    ["{{SubdivisionEnd}}"] = pandoc.Span("☾", { class = "subdivision-end" }),
 }
 
 local function forEpub(el)
