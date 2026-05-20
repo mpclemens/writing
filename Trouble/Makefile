@@ -25,4 +25,4 @@ paperback.tex: paperback.md paperback.yaml
 .PHONY: ebook.epub
 ebook: ebook.epub
 ebook.epub: ebook.md ebook.yaml
-	pandoc --standalone --defaults=ebook.yaml
+	pandoc --standalone --template=ebook.pandoc --defaults=ebook.yaml --metadata-file=images.yaml

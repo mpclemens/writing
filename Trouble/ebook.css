@@ -374,17 +374,31 @@ h1.unnumbered {
   font-style: italic;
 }
 
+.title-image {
+  margin-top: 10%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: 75%;
+}
+
+.imprint-image {
+  margin-top: 5%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: 2em;
+}
+
 .dedication {
   margin-top: 5%;
   text-align: center;
   font-style: italic;
 }
 
-h2>.acknowledgements,
-h2>.about-the-author {
+.acknowledgements,
+.about-the-author {
   margin: 0 0 2em;
-  border-bottom: solid thin;
-  font-style: italic;
 }
 
 div.acknowledgements-page>p,
@@ -398,20 +412,10 @@ div.copyright-page>p {
   font-size: smaller;
 }
 
-/* PARTS */
-h1>.part-title {
-  margin: 0 0 1em;
-  font-size: xx-large;
-  page-break-before: always;
-  line-height: 150%;
-  border-bottom: double thick;
-}
-
 /* CHAPTERS */
-h2>.chapter-title {
-  margin: 0 0 2em;
-  border-bottom: solid thin;
-  font-style: italic;
+.chapter-title {
+  text-align: center;
+  margin: 0 0 1em;
 }
 
 .chapter {

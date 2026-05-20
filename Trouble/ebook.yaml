@@ -21,5 +21,5 @@ toc-depth: 3
 number-sections: false
 split-level: 2
 
-epub-cover-image: ${.}/Trouble.png
+epub-cover-image: ${.}/ebook_cover.png
 epub-title-page: true
