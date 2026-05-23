@@ -24,6 +24,7 @@ local latex_replacements = {
     ["{{Halftitlepage}}"] = "\\myhalftitlepage",
     ["{{Imprint}}"] = "\\myimprint",
     ["{{Mainmatter}}"] = "\\mainmatter",
+    ["{{SubdivisionEnd}}"] = "\\mysubdivisionend",
     ["{{Titlepage}}"] = "\\mytitlepage",
     ["{{Toc}}"] = "\\mytableofcontents",
 }

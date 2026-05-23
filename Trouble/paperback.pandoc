@@ -1,0 +1,246 @@
+$passoptions.latex()$
+\documentclass[
+$for(babel-otherlangs)$
+$babel-otherlangs$,
+$endfor$
+$if(babel-lang)$
+$babel-lang$,
+$endif$
+$if(fontsize)$
+$fontsize$,
+$endif$
+$if(papersize)$
+$papersize$paper,
+$endif$
+$for(classoption)$
+$classoption$$sep$,
+$endfor$
+]{$documentclass$}
+
+$if(beamerarticle)$
+\usepackage{beamerarticle} % needs to be loaded first
+$endif$
+\usepackage{xcolor}
+$if(geometry)$
+\usepackage[$for(geometry)$$geometry$$sep$,$endfor$]{geometry}
+$endif$
+\usepackage{amsmath,amssymb}
+$if(cancel)$
+\usepackage{cancel}
+$endif$
+$--
+$-- section numbering
+$--
+$if(numbersections)$
+\setcounter{secnumdepth}{$if(secnumdepth)$$secnumdepth$$else$5$endif$}
+$else$
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+$endif$
+$fonts.latex()$
+$font-settings.latex()$
+$common.latex()$
+$for(header-includes)$
+$header-includes$
+$endfor$
+$after-header-includes.latex()$
+$hypersetup.latex()$
+$if(pdf-trailer-id)$
+
+\ifXeTeX
+\special{pdf:trailerid [ $pdf-trailer-id$ ]}
+\fi
+\ifPDFTeX
+\pdftrailerid{}
+\pdftrailer{/ID [ $pdf-trailer-id$ ]}
+\fi
+\ifLuaTeX
+\pdfvariable trailerid {[ $pdf-trailer-id$ ]}
+\fi
+$endif$
+
+\usepackage{graphicx}  % -- forced, to include the imprint gfx
+
+$-- My custominzations
+
+$-- for \leftmoon
+\usepackage{wasysym}
+
+\newcommand*\mytitlegraphic{
+\begin{center}\includegraphics[keepaspectratio=true,width=3.75in]{title_graphic.png}\end{center}
+}
+
+\newcommand*\myimprint{
+\begin{center}\includegraphics[keepaspectratio=true,width=0.5in]{imprint.png}\end{center}
+}
+
+\newcommand*\mysubdivisionend{
+    \begin{center}\leftmoon\end{center}
+}
+
+\newcommand*\myfullimprint{
+\begin{center}\includegraphics[keepaspectratio=true,width=2in]{fullimprint.png}\end{center}
+}
+
+\newenvironment{mytitlepage}
+{
+$if(title)$
+\setlength{\droptitle}{0.02\textheight}
+\maketitle
+\mytitlegraphic
+\myimprint
+$if(abstract)$
+\begin{abstract}$abstract$\end{abstract}
+$endif$
+\clearpage
+$endif$
+}
+
+\newenvironment{myhalftitlepage}
+{
+$if(title)$
+\setlength{\droptitle}{0.5\textheight}
+\maketitle
+\clearpage
+$endif$
+}
+
+\newenvironment{copyright-page}
+{
+\addcontentsline{toc}{chapter}{Copyright}
+\thispagestyle{empty}% no header and footer
+\begin{vplace}[0.25]
+\flushleft
+\setlength{\parskip}{0.45em}
+\small
+}
+{
+\normalfont
+\par
+\end{vplace}
+\clearpage
+}
+
+
+\newenvironment{dedication}
+{
+\addcontentsline{toc}{chapter}{Dedication}
+\thispagestyle{empty}% no header and footer
+\begin{vplace}[0.3]
+\itshape             % the text is in italics
+\centering           % centered
+}
+{
+\par
+\end{vplace}
+\clearpage           % finish off the page
+}
+
+\newenvironment{about-the-author-page}
+{
+\setlength{\parskip}{0.45em}
+}
+{
+\par
+\clearpage
+}
+
+
+\newcommand*\mytableofcontents{
+$if(toc)$
+$if(toc-title)$
+\renewcommand*\contentsname{$toc-title$}
+$endif$
+$if(colorlinks)$
+$if(toccolor)$
+\hypersetup{linkcolor=$toccolor$}
+$endif$
+$endif$
+\setcounter{tocdepth}{$toc-depth$}
+$-- Customizations from the `memoir` manual
+\renewcommand{\cftpartnumwidth}{1.8em}
+\renewcommand{\cftchaptername}{Chapter\space}
+\renewcommand{\cftchapterleader}{\normalfont\cftdotfill{\cftsectiondotsep}}
+\tableofcontents*
+$if(lof)$
+\listoffigures
+$endif$
+$if(lot)$
+\listoftables
+$endif$
+\clearpage
+$endif$
+}
+
+$-- Style the footnote numbers
+\footmarkstyle{#1~~}
+
+$-- Document rendering begins here
+$if(title)$
+\title{$title$$if(thanks)$\thanks{$thanks$}$endif$}
+$endif$
+$if(subtitle)$
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+\apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{$subtitle$}
+$endif$
+\author{$for(author)$$author$$sep$ \and $endfor$}
+\date{$date$}
+
+\begin{document}
+
+$if(has-frontmatter)$
+\frontmatter
+$endif$
+
+$for(include-before)$
+$include-before$
+$endfor$
+
+$if(title)$
+\begin{mytitlepage}\end{mytitlepage}
+$endif$
+
+$if(linestretch)$
+\setstretch{$linestretch$}
+$endif$
+
+$-- Control if the paragraphs render flush-left with a gap or indented
+$if(indentpara)$
+$-- It's the default setting for this documentclass
+$else$
+\setlength{\parindent}{0pt}
+\abnormalparskip{0.5em}
+$endif$
+
+$-- Table of Contents, main- and back-matter come from the body
+$body$
+
+$if(nocite-ids)$
+\nocite{$for(nocite-ids)$$it$$sep$, $endfor$}
+$endif$
+$if(natbib)$
+$if(bibliography)$
+$if(biblio-title)$
+$if(has-chapters)$
+\renewcommand\bibname{$biblio-title$}
+$else$
+\renewcommand\refname{$biblio-title$}
+$endif$
+$endif$
+\bibliography{$for(bibliography)$$bibliography$$sep$,$endfor$}
+
+$endif$
+$endif$
+$if(biblatex)$
+\printbibliography$if(biblio-title)$[title=$biblio-title$]$endif$
+
+$endif$
+$for(include-after)$
+$include-after$
+
+$endfor$
+\end{document}

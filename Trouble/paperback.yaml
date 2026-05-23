@@ -1,0 +1,45 @@
+metadata:
+  author: Michael P. Clemens
+  title: Trouble
+
+standalone: true
+template: paperback.pandoc
+filters: [sections.lua, macros.lua, class2env.lua]
+
+from: markdown
+resource-path: ["."]
+
+to: latex
+input-file: paperback.md
+output-file: Trouble-paperback.pdf
+verbosity: WARNING
+
+# toc is master flag for ToC generation
+toc: false
+top-level-division: chapter
+number-sections: false
+
+# Paper sizing as a 'classoption'
+# ebook: 6"x9"
+# statementpaper: 5.5"x8.5"
+
+variables:
+  documentclass: memoir
+  classoption:
+    - ebook
+    - 11pt
+    - twoside
+    - openright
+  fontfamily: charter
+  geometry:
+    - top=0.75in
+    - left=0.9in
+    - right=0.75in
+    - bottom=0.75in
+    - twoside=true
+    - includeheadfoot=true
+  has-frontmatter: true
+  indent: true
+  indentpara: true
+  toc-depth: 2
+  whitespace: small
