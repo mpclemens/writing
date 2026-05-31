@@ -33,8 +33,8 @@ variables:
   fontfamily: charter
   geometry:
     - top=0.75in
-    - left=0.9in
-    - right=0.75in
+    - left=1.00in
+    - right=0.65in
     - bottom=0.75in
     - twoside=true
     - includeheadfoot=true
