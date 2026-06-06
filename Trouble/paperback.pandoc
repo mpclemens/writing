@@ -66,11 +66,11 @@ $-- for \leftmoon
 \usepackage{wasysym}
 
 \newcommand*\mytitlegraphic{
-\begin{center}\includegraphics[keepaspectratio=true,width=3.75in]{title_graphic.png}\end{center}
+\begin{center}\includegraphics[keepaspectratio=true,width=3.5in]{title_graphic.png}\end{center}
 }
 
 \newcommand*\myimprint{
-\begin{center}\includegraphics[keepaspectratio=true,width=0.5in]{imprint.png}\end{center}
+\begin{center}\includegraphics[keepaspectratio=true,width=0.33in]{imprint.png}\end{center}
 }
 
 \newcommand*\mysubdivisionend{
@@ -84,6 +84,7 @@ $-- for \leftmoon
 \newenvironment{mytitlepage}
 {
 $if(title)$
+\pretitle{\begin{center}\HUGE}
 \setlength{\droptitle}{0.02\textheight}
 \maketitle
 \mytitlegraphic
