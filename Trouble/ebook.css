@@ -412,6 +412,12 @@ div.copyright-page>p {
   font-size: smaller;
 }
 
+/* Suppress the titles on certain front/backmatter pages, but let them appear in the ToC */
+h1 span.dedication-title,
+h1 span.copyright-title {
+  display: none;
+}
+
 /* CHAPTERS */
 .chapter-title {
   text-align: center;
