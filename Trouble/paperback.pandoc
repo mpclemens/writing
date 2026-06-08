@@ -70,7 +70,7 @@ $-- for \leftmoon
 }
 
 \newcommand*\myimprint{
-\begin{center}\includegraphics[keepaspectratio=true,width=0.33in]{imprint.png}\end{center}
+\begin{center}\includegraphics[keepaspectratio=true,width=0.5in]{imprint.png}\end{center}
 }
 
 \newcommand*\mysubdivisionend{
