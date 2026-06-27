@@ -3,6 +3,7 @@ metadata:
   title: Trouble
 
 standalone: true
+template: ebook.pandoc
 css: ebook.css
 filters: [images2epub.lua, macros.lua, sections.lua]
 

@@ -62,6 +62,10 @@ $endif$
 
 $-- My custominzations
 
+$-- For a fancy running head
+\copypagestyle{headings}{myheadings}
+\makeoddhead{myheadings}{\MakeUppercase{\textit{\thetitle}}}{}{\thepage}
+
 $-- for \leftmoon
 \usepackage{wasysym}
 

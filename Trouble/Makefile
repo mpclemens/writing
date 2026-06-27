@@ -18,7 +18,7 @@ paperback.tex: paperback.md paperback.yaml
 .PHONY: ebook.epub
 ebook: ebook.epub
 ebook.epub: ebook.md ebook.yaml
-	pandoc --standalone --template=ebook.pandoc --defaults=ebook.yaml --metadata-file=images.yaml
+	pandoc --standalone --defaults=ebook.yaml --metadata-file=images.yaml
 
 phrases:
 	@# take an argument for the number of words in the phrase, 2 or more

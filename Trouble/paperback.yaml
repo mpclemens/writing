@@ -41,5 +41,6 @@ variables:
   has-frontmatter: true
   indent: true
   indentpara: true
+  pagestyle: headings
   toc-depth: 2
   whitespace: small
