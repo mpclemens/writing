@@ -1,4 +1,4 @@
--- Replace section placheholders with numbered titles, incrementing the number as it progresses
+-- Replace section placeholders with numbered titles, incrementing the number as it progresses
 
 -- Document will contain macros like {{ChapterN}}, {{SectionW}}, etc.
 --

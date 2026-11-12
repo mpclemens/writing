@@ -1,0 +1,56 @@
+# Revision Checklist
+
+## Revision 1
+
+* What's the theme and premise
+* What voice and tense
+* Who is the POV(s)
+* Order parts/chapters/scenes
+
+### TODO 1
+
+* [ ] List of scenes writter
+* [ ] List of scenes to write, glue, and first draft
+* [ ] Tag POVs and characters with dialogue in metadata
+* [ ] Sensory details: smell, taste, touch, sound, sight
+* [ ] Character attire, posture, expressions
+* [ ] Setting details: smell, taste, touch, sound, sight
+
+## Revision 2
+
+* Chapter sizing and pace
+* Chapter breaks on a "turn"
+* Scene purpose and pace
+* Scenes end on a "turn"
+
+### TODO 2
+
+* [ ] Passive voice and weak verbs
+* [ ] Indirect object ("Golidlocks thought Papa Bear was angry")
+* [ ] Adverbs replace with stronger verbs
+* [ ] Reduce dialogue tagging with action beats
+
+## Revision 3
+
+* Sentences end on strong words
+* Vary sentence length, with rhythm
+* Common word replacement
+* Cliche awareness and elimination
+
+### TODO 3
+
+* [ ] Comma splices, overlong sentences
+* [ ] Reduce word and phrase frequency and overuse
+* [ ] Text-to-speech listen through, with ear for repeats and overuse
+
+## Revision 4
+
+* Possessives and plurals
+* Homophones/word choices (complement versus compliment)
+
+### TODO 4
+
+* [ ] Output to other format, line-level proofread
+* [ ] Spellcheck, grammar check, exceptions noted
+* [ ] Text-to-speech listen through
+* [ ] Title, blurb, pitch, and descriptions
