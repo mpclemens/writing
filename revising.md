@@ -1,6 +1,8 @@
 # Revision Checklist
 
-## Revision 1
+Macro to micro
+
+## Revision 1 Focus: Structure and Senses
 
 * What's the theme and premise
 * What voice and tense
@@ -9,14 +11,15 @@
 
 ### TODO 1
 
-* [ ] List of scenes writter
-* [ ] List of scenes to write, glue, and first draft
+* [ ] List of scenes written
+* [ ] Ordering scenes
+* [ ] List of scenes to write: glue up holes in first draft
 * [ ] Tag POVs and characters with dialogue in metadata
 * [ ] Sensory details: smell, taste, touch, sound, sight
 * [ ] Character attire, posture, expressions
 * [ ] Setting details: smell, taste, touch, sound, sight
 
-## Revision 2
+## Revision 2 Focus: Pacing and Momentum
 
 * Chapter sizing and pace
 * Chapter breaks on a "turn"
@@ -26,15 +29,16 @@
 ### TODO 2
 
 * [ ] Passive voice and weak verbs
-* [ ] Indirect object ("Golidlocks thought Papa Bear was angry")
-* [ ] Adverbs replace with stronger verbs
+* [ ] Remove weak qualifiers: "about, nearly, almost"
+* [ ] Indirect object ("Goldilocks thought Papa Bear was angry")
+* [ ] Adverbs replaced with stronger verbs
 * [ ] Reduce dialogue tagging with action beats
 
-## Revision 3
+## Revision 3 Focus: Paragraph Tune-Up
 
 * Sentences end on strong words
-* Vary sentence length, with rhythm
-* Common word replacement
+* Vary sentence length for rhythm
+* Common/overused word replacements
 * Cliche awareness and elimination
 
 ### TODO 3
@@ -43,14 +47,14 @@
 * [ ] Reduce word and phrase frequency and overuse
 * [ ] Text-to-speech listen through, with ear for repeats and overuse
 
-## Revision 4
+## Revision 4 Focus: Word-level tweaks 
 
 * Possessives and plurals
-* Homophones/word choices (complement versus compliment)
+* Homophones/word choices (_complement_ versus _compliment_)
 
 ### TODO 4
 
 * [ ] Output to other format, line-level proofread
-* [ ] Spellcheck, grammar check, exceptions noted
+* [ ] Spellcheck, grammar check, intentional exceptions noted ("ain't")
 * [ ] Text-to-speech listen through
 * [ ] Title, blurb, pitch, and descriptions
