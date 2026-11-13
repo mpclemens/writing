@@ -6,7 +6,7 @@ Macro to micro
 
 * What's the theme and premise
 * What voice and tense
-* Who is the POV(s)
+* Who is/are the POV(s)
 * Order parts/chapters/scenes
 
 ### TODO 1
@@ -18,6 +18,7 @@ Macro to micro
 * [ ] Sensory details: smell, taste, touch, sound, sight
 * [ ] Character attire, posture, expressions
 * [ ] Setting details: smell, taste, touch, sound, sight
+* [ ] Tense, subject/verb agreements, POV
 
 ## Revision 2 Focus: Pacing and Momentum
 
@@ -30,8 +31,9 @@ Macro to micro
 
 * [ ] Passive voice and weak verbs
 * [ ] Remove weak qualifiers: "about, nearly, almost"
+* [ ] Helper verbs to single verb ("was sleeping" to "slept")
 * [ ] Indirect object ("Goldilocks thought Papa Bear was angry")
-* [ ] Adverbs replaced with stronger verbs
+* [ ] Adverbs replaced with stronger verbs: `-ly` search
 * [ ] Reduce dialogue tagging with action beats
 
 ## Revision 3 Focus: Paragraph Tune-Up
@@ -40,6 +42,7 @@ Macro to micro
 * Vary sentence length for rhythm
 * Common/overused word replacements
 * Cliche awareness and elimination
+* Consistent and discrete character voice usage
 
 ### TODO 3
 
