@@ -23,9 +23,9 @@ Macro to micro
 ## Revision 2 Focus: Pacing and Momentum
 
 * Chapter sizing and pace
-* Chapter breaks on a "turn"
+* Chapter ends on a "turn"
 * Scene purpose and pace
-* Scenes end on a "turn"
+* Scene breaks on a "turn"
 
 ### TODO 2
 
@@ -50,7 +50,7 @@ Macro to micro
 * [ ] Reduce word and phrase frequency and overuse
 * [ ] Text-to-speech listen through, with ear for repeats and overuse
 
-## Revision 4 Focus: Word-level tweaks 
+## Revision 4 Focus: Word-level Tweaks 
 
 * Possessives and plurals
 * Homophones/word choices (_complement_ versus _compliment_)
