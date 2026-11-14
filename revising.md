@@ -74,5 +74,5 @@ Working "macro to micro" from large rocks to fine polish, focus during each pass
 
 1. [ ] Title, blurb, pitch
 1. [ ] Short and long descriptions
-1. [ ] Genre, categories, and BISAC
+1. [ ] Genre, categories, and [BISAC](https://www.bisg.org/complete-bisac-subject-headings-list)
 1. [ ] Keywords
