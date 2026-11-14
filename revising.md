@@ -1,63 +1,75 @@
 # Revision Checklist
 
-Macro to micro
+Working "macro to micro" from large rocks to fine polish, focus during each pass on one specific area.
 
-## Revision 1 Focus: Structure and Senses
+## 1. Complete the Draft
 
-* What's the theme and premise
-* What voice and tense
-* Who is/are the POV(s)
-* Order parts/chapters/scenes
+1. [ ] Write out theme and premise
+1. [ ] Choose voice and tense
+1. [ ] Choose POV(s)
+1. [ ] Summarize character goals/motivations/conflict
+1. [ ] List of scenes written
+1. [ ] Order scenes
+1. [ ] Add "glue scenes" in gaps
+1. [ ] Tag POVs and characters in metadata
 
-### TODO 1
+## 2. Layer in Senses and Details
 
-* [ ] List of scenes written
-* [ ] Ordering scenes
-* [ ] List of scenes to write: glue up holes in first draft
-* [ ] Tag POVs and characters with dialogue in metadata
-* [ ] Sensory details: smell, taste, touch, sound, sight
-* [ ] Character attire, posture, expressions
-* [ ] Setting details: smell, taste, touch, sound, sight
-* [ ] Tense, subject/verb agreements, POV
+1. [ ] Character attire, posture, expressions
+1. [ ] Speech and mannerisms per character
+1. [ ] Setting details: smell, taste, touch, sound, sight
+1. [ ] Scene details: smell, taste, touch, sound, sight
 
-## Revision 2 Focus: Pacing and Momentum
+## 3. Tighten Language
 
-* Chapter sizing and pace
-* Chapter ends on a "turn"
-* Scene purpose and pace
-* Scene breaks on a "turn"
+1. [ ] Sentence summary of each structural section
+    * e.g. Freytag’s Pyramid
+        * Hook/inciting incident
+        * Rising action/complications
+        * Climax
+        * Falling action
+        * Resolution/denouemont
+1. [ ] Cut passive voice
+1. [ ] Helper verbs to single verb: "was sleeping" to "slept"
+    * `\W(was|were|am|is|had)\W(\w+)(ing|ed)\W`
+1. [ ] Remove weak qualifiers: "about, nearly, almost"
+1. [ ] Indirect object: "Goldilocks thought Papa Bear was angry"
+1. [ ] Adverbs replaced with stronger verbs: `-ly` sweep
+1. [ ] Reduce dialogue tagging with action beats
 
-### TODO 2
+## 4. Check Pace and Momentum
 
-* [ ] Passive voice and weak verbs
-* [ ] Remove weak qualifiers: "about, nearly, almost"
-* [ ] Helper verbs to single verb ("was sleeping" to "slept")
-* [ ] Indirect object ("Goldilocks thought Papa Bear was angry")
-* [ ] Adverbs replaced with stronger verbs: `-ly` search
-* [ ] Reduce dialogue tagging with action beats
+1. [ ] Identify parts/chapters/sections/scenes
+1. [ ] Chapter sizing and pace
+1. [ ] Chapter ends on a "turn"
+1. [ ] Scenes have purpose and pace well
+1. [ ] Scenes break on a "turn"
 
-## Revision 3 Focus: Paragraph Tune-Up
+## 5. Paragraph Tune-Up
 
-* Sentences end on strong words
-* Vary sentence length for rhythm
-* Common/overused word replacements
-* Cliche awareness and elimination
-* Consistent and discrete character voice usage
+1. [ ] Break `, but` sentences into two
+1. [ ] Cause and effect: `because` or `although` not `and then`
+1. [ ] Sentences end on strong words
+1. [ ] Vary sentence length for rhythm
+1. [ ] Common/overused word replacements
+1. [ ] Cliche awareness and elimination
+1. [ ] Consistent and discrete character voice usage
+1. [ ] Comma splices, overlong sentences
+1. [ ] Reduce word and phrase frequency and overuse
+1. [ ] Text-to-speech listen through, with ear for repeats and overuse
 
-### TODO 3
+## 6. Word-level Polishing
 
-* [ ] Comma splices, overlong sentences
-* [ ] Reduce word and phrase frequency and overuse
-* [ ] Text-to-speech listen through, with ear for repeats and overuse
+1. [ ] Consistent tense, subject/verb agreement, POV and voice
+1. [ ] Possessives and plurals `'s` versus `s`
+1. [ ] Homophones/word choices: _complement_ versus _compliment_
+1. [ ] Spellcheck, grammar check, intentional exceptions noted: "ain't"
+1. [ ] Output as MS format, line-level proofread
+1. [ ] Text-to-speech listen through
 
-## Revision 4 Focus: Word-level Tweaks 
+## 7. Publish Prep
 
-* Possessives and plurals
-* Homophones/word choices (_complement_ versus _compliment_)
-
-### TODO 4
-
-* [ ] Output to other format, line-level proofread
-* [ ] Spellcheck, grammar check, intentional exceptions noted ("ain't")
-* [ ] Text-to-speech listen through
-* [ ] Title, blurb, pitch, and descriptions
+1. [ ] Title, blurb, pitch
+1. [ ] Short and long descriptions
+1. [ ] Genre, categories, and BISAC
+1. [ ] Keywords
