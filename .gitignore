@@ -1,1 +1,25 @@
 .DS_Store
+
+# Local notes
+!*.md
+
+# Source files for book assembly
+!**/*.css
+!**/*.lua
+!**/*.pandoc
+!**/*.yaml
+!**/Makefile
+
+# The books themselves
+**/*.md
+**/*.png
+**/*.jpg
+**/*.jpeg
+**/*.gif
+**/*.svg
+**/*.webp
+**/*.bmp
+**/*.tiff
+**/*.ico
+**/*.pdf
+**/*.epub

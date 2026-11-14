@@ -1,7 +1,0 @@
-*
-*/.DS_Store
-!*.css
-!*.lua
-!*.pandoc
-!*.yaml
-!Makefile
