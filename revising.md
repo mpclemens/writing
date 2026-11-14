@@ -12,6 +12,7 @@ Working "macro to micro" from large rocks to fine polish, focus during each pass
 1. [ ] Order scenes
 1. [ ] Add "glue scenes" in gaps
 1. [ ] Tag POVs and characters in metadata
+1. [ ] Define custom styles as needed: small caps, etc.
 
 ## 2. Layer in Senses and Details
 
@@ -32,10 +33,12 @@ Working "macro to micro" from large rocks to fine polish, focus during each pass
 1. [ ] Cut passive voice
 1. [ ] Helper verbs to single verb: "was sleeping" to "slept"
     * `\W(was|were|am|is|had)\W(\w+)(ing|ed)\W`
+    * `\W([cw]ould)\W(\w+)\W`
 1. [ ] Remove weak qualifiers: "about, nearly, almost"
 1. [ ] Indirect object: "Goldilocks thought Papa Bear was angry"
 1. [ ] Adverbs replaced with stronger verbs: `-ly` sweep
 1. [ ] Reduce dialogue tagging with action beats
+1. [ ] Sparing use of exclamation marks, dashes, parentheticals
 
 ## 4. Check Pace and Momentum
 
